@@ -146,7 +146,9 @@ section.pad{padding:100px 0}
 /* ---------- About ---------- */
 .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
 .about-photo{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.about-photo .photo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .about-photo .ph{position:absolute;inset:0;background:linear-gradient(160deg,#d8c0a4,#a7b191);display:grid;place-items:center;text-align:center;padding:24px}
+.about-photo .badge{z-index:2}
 .about-photo .ph svg{width:46%;opacity:.85;margin-bottom:14px}
 .about-photo .ph em{color:rgba(255,255,255,.9);font-style:normal;font-size:.85rem;letter-spacing:.04em}
 .about-photo .badge{
@@ -181,7 +183,7 @@ section.pad{padding:100px 0}
 /* ---------- Booking ---------- */
 .booking-section{background:linear-gradient(160deg,var(--bg-2),var(--bg))}
 .booking{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-.booking-aside{background:linear-gradient(160deg,var(--clay-deep),var(--sage-deep));color:#fff;padding:48px 40px;position:relative;overflow:hidden}
+.booking-aside{background:linear-gradient(160deg,rgba(169,106,68,.9),rgba(109,122,92,.92)),url('bilder/praxis.jpg') center/cover;color:#fff;padding:48px 40px;position:relative;overflow:hidden}
 .booking-aside::after{content:"";position:absolute;bottom:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.1)}
 .booking-aside h3{font-size:1.9rem;margin-bottom:16px;color:#fff}
 .booking-aside p{opacity:.92;margin-bottom:28px}
@@ -409,9 +411,10 @@ footer{background:#332a22;color:#e2d5c4;padding:70px 0 30px;margin-top:20px}
   <div class="wrap">
     <div class="about">
       <div class="about-photo reveal">
+        <img class="photo-img" src="bilder/portrait.jpg" alt="[Ihr Name]" onerror="this.style.display='none'">
         <div class="ph">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg>
-          <em>Hier Ihr Foto einfügen</em>
+          <em>Hier Ihr Foto einfügen<br>(bilder/portrait.jpg)</em>
         </div>
         <div class="badge">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6d7a5c" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
