@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praxis für psychologische Beratung & Coaching</title>
+<meta name="description" content="Praxis für psychologische Beratung & Coaching. Ein ruhiger, warmer Raum für Klarheit, Wachstum und Balance. Jetzt Termin buchen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ece1;          /* warmes creme */
+  --bg-2:#ece0d2;        /* sand */
+  --surface:#fbf6ee;     /* warmes off-white */
+  --ink:#3a3029;         /* warmes dunkelbraun */
+  --ink-soft:#7c6d5f;    /* gedecktes taupe */
+  --clay:#c48a63;        /* ton / terrakotta */
+  --clay-deep:#a96a44;
+  --sage:#8f9c7f;        /* gedecktes salbei */
+  --sage-deep:#6d7a5c;
+  --line:#e2d5c4;
+  --shadow:0 24px 60px -28px rgba(90,64,42,.45);
+  --shadow-sm:0 12px 30px -20px rgba(90,64,42,.5);
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.14;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--clay-deep);font-weight:600;margin-bottom:14px;display:inline-block;
+}
+
+/* ---------- Nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;max-width:1140px;margin:0 auto;transition:.4s;
+}
+header.scrolled{background:rgba(244,236,225,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+header.scrolled .nav{padding:14px 24px}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;line-height:1.15}
+.logo .mark{width:38px;height:38px;flex:none}
+.logo b{font-size:1.08rem;font-weight:600;display:block}
+.logo span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-family:'Inter';font-weight:500}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:.95rem;color:var(--ink-soft);font-weight:500;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--clay-deep);transition:.3s;border-radius:2px}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;
+  padding:13px 26px;border-radius:100px;border:none;cursor:pointer;transition:.35s;
+  font-family:'Inter',sans-serif;
+}
+.btn-primary{
+  background:linear-gradient(120deg,var(--clay-deep),var(--clay));
+  color:#fff;box-shadow:0 12px 26px -12px rgba(169,106,68,.7);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 34px -14px rgba(169,106,68,.8)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--clay-deep);color:var(--clay-deep)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+.menu-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:170px 0 110px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.2rem);margin-bottom:22px}
+.hero h1 .grad{
+  background:linear-gradient(115deg,var(--clay-deep),var(--sage-deep));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p.lead{font-size:1.18rem;color:var(--ink-soft);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.hero-trust{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}
+.hero-trust .t{display:flex;align-items:center;gap:11px;font-size:.94rem;color:var(--ink-soft)}
+.hero-trust .t svg{color:var(--sage-deep);flex:none}
+
+/* floating art */
+.hero-art{position:relative;height:460px}
+.card-float{
+  position:absolute;background:var(--surface);border-radius:20px;padding:16px 19px;
+  box-shadow:var(--shadow);display:flex;align-items:center;gap:13px;z-index:3;
+}
+.card-float .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff}
+.card-float b{display:block;font-size:.92rem}
+.card-float small{color:var(--ink-soft);font-size:.78rem}
+.orb{
+  position:absolute;inset:0;margin:auto;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#e7cdb4,#c48a63 48%,#a96a44 100%);
+  box-shadow:0 44px 90px -34px rgba(169,106,68,.65), inset 0 0 70px rgba(255,244,232,.35);
+  animation:breathe 7s ease-in-out infinite;
+}
+.orb::after{content:"";position:absolute;inset:24px;border-radius:50%;border:1px solid rgba(255,246,238,.4)}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+.ring{
+  position:absolute;inset:0;margin:auto;width:404px;height:404px;border-radius:50%;
+  border:1px dashed rgba(143,156,127,.5);animation:spin 44s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.c1{top:16px;left:-6px;animation:floaty 6s ease-in-out infinite}
+.c2{bottom:26px;right:-4px;animation:floaty 7s ease-in-out infinite .8s}
+.c3{bottom:150px;left:-28px;animation:floaty 8s ease-in-out infinite .4s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero-bg .g1{position:absolute;top:-140px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#e6cfb6,transparent 66%)}
+.hero-bg .g2{position:absolute;bottom:-160px;left:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,#d8ddc7,transparent 66%)}
+
+/* wave divider */
+.wave{display:block;width:100%;height:90px;margin-top:-2px}
+
+/* ---------- generic section ---------- */
+section.pad{padding:100px 0}
+.section-head{max-width:640px;margin:0 auto 60px;text-align:center}
+.section-head h2{font-size:clamp(2rem,3.6vw,2.9rem);margin-bottom:16px}
+.section-head p{color:var(--ink-soft);font-size:1.08rem}
+
+/* ---------- Services ---------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:36px 30px;transition:.4s;position:relative;overflow:hidden;
+}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--clay),var(--sage));transform:scaleX(0);transform-origin:left;transition:.45s}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;color:#fff;margin-bottom:22px;background:linear-gradient(135deg,var(--clay-deep),var(--sage-deep))}
+.svc h3{font-size:1.35rem;margin-bottom:12px}
+.svc p{color:var(--ink-soft);font-size:.98rem}
+.svc ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{font-size:.8rem;background:var(--bg-2);color:var(--ink-soft);padding:5px 12px;border-radius:100px}
+
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.about-photo{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.about-photo .ph{position:absolute;inset:0;background:linear-gradient(160deg,#d8c0a4,#a7b191);display:grid;place-items:center;text-align:center;padding:24px}
+.about-photo .ph svg{width:46%;opacity:.85;margin-bottom:14px}
+.about-photo .ph em{color:rgba(255,255,255,.9);font-style:normal;font-size:.85rem;letter-spacing:.04em}
+.about-photo .badge{
+  position:absolute;bottom:18px;left:18px;right:18px;background:rgba(251,246,238,.92);
+  backdrop-filter:blur(6px);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:12px;
+}
+.about-photo .badge b{font-family:'Fraunces',serif}
+.about h2{font-size:clamp(2rem,3.4vw,2.7rem);margin-bottom:20px}
+.about p{color:var(--ink-soft);margin-bottom:16px}
+.creds{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.cred{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:9px 16px;border-radius:100px}
+.cred svg{color:var(--sage-deep)}
+
+/* ---------- Process ---------- */
+.process-section{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step{position:relative;padding-top:20px}
+.step .num{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Fraunces',serif;font-size:1.3rem;color:#fff;margin-bottom:18px;
+  background:linear-gradient(135deg,var(--clay-deep),var(--sage-deep));box-shadow:var(--shadow-sm);
+}
+.step h3{font-size:1.2rem;margin-bottom:8px}
+.step p{color:var(--ink-soft);font-size:.94rem}
+.step:not(:last-child)::after{content:"";position:absolute;top:46px;left:64px;right:-12px;height:2px;background:linear-gradient(90deg,var(--line),transparent)}
+
+/* ---------- Placeholder note block ---------- */
+.ph-note{max-width:760px;margin:0 auto;background:var(--surface);border:1px dashed var(--clay);border-radius:var(--r);padding:34px 32px;text-align:center;color:var(--ink-soft)}
+.ph-note svg{color:var(--clay-deep);margin-bottom:14px}
+.ph-note b{color:var(--ink);font-family:'Fraunces',serif;font-size:1.2rem;display:block;margin-bottom:8px}
+
+/* ---------- Booking ---------- */
+.booking-section{background:linear-gradient(160deg,var(--bg-2),var(--bg))}
+.booking{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.booking-aside{background:linear-gradient(160deg,var(--clay-deep),var(--sage-deep));color:#fff;padding:48px 40px;position:relative;overflow:hidden}
+.booking-aside::after{content:"";position:absolute;bottom:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.1)}
+.booking-aside h3{font-size:1.9rem;margin-bottom:16px;color:#fff}
+.booking-aside p{opacity:.92;margin-bottom:28px}
+.booking-aside ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.booking-aside li{display:flex;gap:13px;align-items:flex-start;font-size:.96rem;position:relative;z-index:2}
+.booking-aside li svg{flex:none;margin-top:2px}
+.booking-form{padding:44px 40px}
+.progress{display:flex;gap:8px;margin-bottom:30px}
+.progress .p{flex:1;height:5px;border-radius:100px;background:var(--line);overflow:hidden}
+.progress .p .fill{height:100%;width:0;background:linear-gradient(90deg,var(--clay-deep),var(--sage-deep));transition:.5s}
+.progress .p.done .fill{width:100%}
+.step-panel{display:none;animation:fade .5s ease}
+.step-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.step-title{font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:6px}
+.step-sub{color:var(--ink-soft);font-size:.94rem;margin-bottom:22px}
+.svc-opts{display:flex;flex-direction:column;gap:12px}
+.opt{border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;transition:.25s;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.opt:hover{border-color:var(--clay)}
+.opt.sel{border-color:var(--clay-deep);background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--clay-deep)}
+.opt b{font-size:1rem}
+.opt small{color:var(--ink-soft);display:block;font-weight:400}
+.opt .dur{font-family:'Fraunces',serif;font-size:.98rem;color:var(--clay-deep);white-space:nowrap}
+/* calendar */
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cal-head button{background:var(--bg-2);border:none;width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:1.1rem;color:var(--ink);transition:.25s}
+.cal-head button:hover{background:var(--clay);color:#fff}
+.cal-head b{font-family:'Fraunces',serif;font-size:1.15rem}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-grid .dow{text-align:center;font-size:.72rem;color:var(--ink-soft);font-weight:600;padding:4px 0;text-transform:uppercase;letter-spacing:.05em}
+.day{aspect-ratio:1;border:none;background:transparent;border-radius:10px;cursor:pointer;font-size:.92rem;color:var(--ink);transition:.2s;font-family:inherit}
+.day:hover:not(:disabled){background:var(--bg-2)}
+.day:disabled{color:#c8b8a4;cursor:not-allowed}
+.day.sel{background:linear-gradient(135deg,var(--clay-deep),var(--sage-deep));color:#fff;font-weight:600}
+.day.today{box-shadow:inset 0 0 0 1.5px var(--clay)}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.slot{border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:11px 0;cursor:pointer;font-size:.92rem;transition:.2s;font-family:inherit;color:var(--ink)}
+.slot:hover{border-color:var(--clay)}
+.slot.sel{background:var(--clay-deep);border-color:var(--clay-deep);color:#fff;font-weight:600}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:.95rem;color:var(--ink);transition:.25s;background:var(--surface)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--clay-deep);box-shadow:0 0 0 3px rgba(169,106,68,.15)}
+.field textarea{resize:vertical;min-height:80px}
+.summary{background:var(--bg-2);border-radius:14px;padding:18px 20px;margin-bottom:20px}
+.summary .row{display:flex;justify-content:space-between;padding:7px 0;font-size:.92rem;border-bottom:1px solid var(--line)}
+.summary .row:last-child{border:none}
+.summary .row span:first-child{color:var(--ink-soft)}
+.summary .row span:last-child{font-weight:600}
+.form-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.hint{font-size:.8rem;color:var(--ink-soft);margin-top:10px;text-align:center}
+/* success */
+.success{text-align:center;padding:20px 0}
+.check{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;background:linear-gradient(135deg,var(--clay-deep),var(--sage-deep));display:grid;place-items:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.check svg{width:44px;stroke-dasharray:48;stroke-dashoffset:48;animation:draw .6s .25s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.success h3{font-size:1.7rem;margin-bottom:10px}
+.success p{color:var(--ink-soft);margin-bottom:20px}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.acc{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.3s}
+.acc.open{box-shadow:var(--shadow-sm);border-color:transparent}
+.acc-q{width:100%;text-align:left;background:none;border:none;padding:22px 24px;font-size:1.05rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink);font-family:inherit}
+.acc-q .plus{flex:none;width:26px;height:26px;position:relative;transition:.3s}
+.acc-q .plus::before,.acc-q .plus::after{content:"";position:absolute;background:var(--clay-deep);border-radius:2px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.acc-q .plus::before{width:14px;height:2px}
+.acc-q .plus::after{width:2px;height:14px;transition:.3s}
+.acc.open .plus::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.acc-a{max-height:0;overflow:hidden;transition:.4s;color:var(--ink-soft)}
+.acc-a p{padding:0 24px 22px}
+
+/* ---------- Footer ---------- */
+footer{background:#332a22;color:#e2d5c4;padding:70px 0 30px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
+.foot-grid h4{color:#fff;font-size:1rem;margin-bottom:16px;font-family:'Inter';font-weight:600}
+.foot-grid a,.foot-grid p{color:#c3b3a1;font-size:.92rem;display:block;margin-bottom:9px;transition:.2s}
+.foot-grid a:hover{color:#fff}
+.foot-logo{display:flex;align-items:center;gap:11px;color:#fff;font-family:'Fraunces',serif;font-size:1.15rem;margin-bottom:14px;line-height:1.25}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:#a1917f}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:.8s cubic-bezier(.16,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .hero-grid,.about,.booking{grid-template-columns:1fr}
+  .hero-art{height:340px;order:-1}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:not(:last-child)::after{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;
+    background:var(--surface);flex-direction:column;padding:100px 34px;gap:22px;
+    box-shadow:var(--shadow);transition:.4s;align-items:flex-start;
+  }
+  .nav-links.show{right:0}
+  .nav-links a{font-size:1.1rem}
+  .menu-toggle{display:flex}
+  .about-photo{max-width:360px;margin:0 auto}
+}
+@media(max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .slots{grid-template-columns:repeat(2,1fr)}
+  .booking-form,.booking-aside{padding:32px 24px}
+  .foot-grid{grid-template-columns:1fr}
+  .logo span{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" fill="url(#lg)"/>
+        <path d="M20 11c-3 4-7 5-7 10a7 7 0 0 0 14 0c0-5-4-6-7-10z" fill="#fff" opacity=".95"/>
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40">
+          <stop stop-color="#a96a44"/><stop offset="1" stop-color="#6d7a5c"/></linearGradient></defs>
+      </svg>
+      <span style="display:flex;flex-direction:column">
+        <b>Praxis für Beratung</b>
+        <span>& Coaching</span>
+      </span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#faq">FAQ</a>
+      <a href="#termin" class="btn btn-primary">Termin buchen</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"><div class="g1"></div><div class="g2"></div></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Praxis für psychologische Beratung & Coaching</span>
+        <h1 class="reveal d1">Ein warmer Raum für <span class="grad">Klarheit</span> & inneren Halt</h1>
+        <p class="lead reveal d2">Hier dürfen Sie durchatmen, sich sortieren und wieder Kraft schöpfen. Gemeinsam finden wir in Ruhe Wege, die zu Ihnen passen.</p>
+        <div class="hero-cta reveal d3">
+          <a href="#termin" class="btn btn-primary">Termin buchen
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+        </div>
+        <div class="hero-trust reveal d3">
+          <div class="t"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Vertraulich & diskret</div>
+          <div class="t"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>Vor Ort & online</div>
+          <div class="t"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l9 9 9-9a5.5 5.5 0 0 0 0-7.8z"/></svg>Achtsam & wertschätzend</div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="ring"></div>
+        <div class="orb"></div>
+        <div class="card-float c1">
+          <div class="ic" style="background:linear-gradient(135deg,#a96a44,#c48a63)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l9 9 9-9a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </div>
+          <div><b>Achtsam</b><small>Ganz bei Ihnen</small></div>
+        </div>
+        <div class="card-float c2">
+          <div class="ic" style="background:linear-gradient(135deg,#6d7a5c,#8f9c7f)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div><b>Vertraulich</b><small>Geschützter Rahmen</small></div>
+        </div>
+        <div class="card-float c3">
+          <div class="ic" style="background:linear-gradient(135deg,#8f9c7f,#a96a44)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>
+          </div>
+          <div><b>Flexibel</b><small>Vor Ort & online</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#fbf6ee" d="M0,40 C360,90 1080,-10 1440,40 L1440,90 L0,90 Z"/></svg>
+
+<!-- ============ LEISTUNGEN ============ -->
+<section class="pad" id="leistungen" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Leistungen</span>
+      <h2>Begleitung, die zu Ihrem Leben passt</h2>
+      <p>Jede Begleitung beginnt mit Zuhören – und einem Weg, der sich sicher anfühlt.</p>
+    </div>
+    <div class="services">
+      <div class="svc reveal">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Psychologische Beratung</h3>
+        <p>Unterstützung bei Stress, Ängsten, Erschöpfung oder Lebenskrisen – wertschätzend und lösungsorientiert.</p>
+        <ul><li>Stress & Belastung</li><li>Ängste</li><li>Selbstwert</li></ul>
+      </div>
+      <div class="svc reveal d1">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
+        <h3>Coaching</h3>
+        <p>Klarheit für Entscheidungen, Ziele und Veränderungen – beruflich wie privat, Schritt für Schritt.</p>
+        <ul><li>Orientierung</li><li>Ziele</li><li>Veränderung</li></ul>
+      </div>
+      <div class="svc reveal d2">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div>
+        <h3>Beziehung & Konflikte</h3>
+        <p>Wieder ins Gespräch kommen, Muster verstehen und Nähe neu gestalten – in einem sicheren Rahmen.</p>
+        <ul><li>Kommunikation</li><li>Konflikte</li><li>Nähe</li></ul>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:26px">Beispiel-Leistungen – passen Sie Titel und Beschreibungen an Ihr Angebot an.</p>
+  </div>
+</section>
+
+<!-- ============ ÜBER ============ -->
+<section class="pad" id="ueber">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-photo reveal">
+        <div class="ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg>
+          <em>Hier Ihr Foto einfügen</em>
+        </div>
+        <div class="badge">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6d7a5c" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+          <div><b>[Ihr Name]</b><small style="color:var(--ink-soft)">[Ihre Qualifikation]</small></div>
+        </div>
+      </div>
+      <div class="about-copy reveal d1">
+        <span class="eyebrow">Über mich</span>
+        <h2>Auf Augenhöhe, mit echtem Interesse an Ihrer Geschichte</h2>
+        <p>[Hier stellen Sie sich vor: Ihr Werdegang, Ihre Ausbildung und was Ihnen in der Begleitung von Menschen besonders wichtig ist. Dieser Text ist ein Platzhalter.]</p>
+        <p>Sie müssen nichts „vorbereiten" und nichts leisten. Es reicht, dass Sie da sind – den Rest gehen wir gemeinsam an, in Ihrem Tempo.</p>
+        <div class="creds">
+          <div class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>[Ausbildung / Methode]</div>
+          <div class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>[Schwerpunkt]</div>
+          <div class="cred"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>[Zertifizierung]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABLAUF ============ -->
+<section class="pad process-section" id="ablauf">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">So läuft es ab</span>
+      <h2>Ihr Weg in vier ruhigen Schritten</h2>
+      <p>Vom ersten Kontakt bis zur Sitzung – transparent, unkompliziert und ganz ohne Druck.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Kennenlernen</h3><p>Ein kurzes, unverbindliches Vorgespräch, um zu spüren, ob die Chemie stimmt.</p></div>
+      <div class="step reveal d1"><div class="num">2</div><h3>Termin buchen</h3><p>Wählen Sie online bequem Datum und Uhrzeit, die zu Ihnen passen.</p></div>
+      <div class="step reveal d2"><div class="num">3</div><h3>Erstgespräch</h3><p>Wir klären Ihr Anliegen und finden gemeinsam einen sicheren Weg.</p></div>
+      <div class="step reveal d3"><div class="num">4</div><h3>Begleitung</h3><p>Regelmäßige Sitzungen – flexibel vor Ort oder bequem online.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERMIN / BOOKING ============ -->
+<section class="pad booking-section" id="termin">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Termin buchen</span>
+      <h2>Reservieren Sie Ihren Platz</h2>
+      <p>In wenigen Schritten zu Ihrem Wunschtermin. Sie erhalten anschließend eine Bestätigung.</p>
+    </div>
+    <div class="booking reveal">
+      <aside class="booking-aside">
+        <h3>Zeit für Sie</h3>
+        <p>Ein erster Schritt kann viel verändern. Ich freue mich darauf, Sie kennenzulernen.</p>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Ruhige, ungestörte Gesprächsatmosphäre</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Wahlweise vor Ort oder per Video</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Vertraulich & unverbindlich</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span>[Adresse Ihrer Praxis]</span></li>
+        </ul>
+      </aside>
+
+      <div class="booking-form">
+        <div class="progress">
+          <div class="p" id="pb1"><div class="fill"></div></div>
+          <div class="p" id="pb2"><div class="fill"></div></div>
+          <div class="p" id="pb3"><div class="fill"></div></div>
+          <div class="p" id="pb4"><div class="fill"></div></div>
+        </div>
+
+        <!-- Step 1: Service -->
+        <div class="step-panel active" data-step="1">
+          <div class="step-title">Was darf es sein?</div>
+          <div class="step-sub">Wählen Sie die passende Begleitung.</div>
+          <div class="svc-opts">
+            <div class="opt" data-svc="Psychologische Beratung" data-dur="50 Min.">
+              <div><b>Psychologische Beratung</b><small>Einzelsitzung</small></div><span class="dur">50 Min.</span>
+            </div>
+            <div class="opt" data-svc="Coaching" data-dur="60 Min.">
+              <div><b>Coaching</b><small>Einzelsitzung</small></div><span class="dur">60 Min.</span>
+            </div>
+            <div class="opt" data-svc="Beziehung & Konflikte" data-dur="80 Min.">
+              <div><b>Beziehung & Konflikte</b><small>Sitzung zu zweit</small></div><span class="dur">80 Min.</span>
+            </div>
+            <div class="opt" data-svc="Kennenlerngespräch" data-dur="15 Min.">
+              <div><b>Kennenlerngespräch</b><small>Kurzes Vorgespräch</small></div><span class="dur">15 Min.</span>
+            </div>
+          </div>
+          <div class="form-nav">
+            <span></span>
+            <button class="btn btn-primary" onclick="next(1)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Date & time -->
+        <div class="step-panel" data-step="2">
+          <div class="step-title">Datum & Uhrzeit</div>
+          <div class="step-sub">Wählen Sie einen Wochentag und eine freie Zeit.</div>
+          <div class="cal-head">
+            <button onclick="changeMonth(-1)" aria-label="Vorheriger Monat">‹</button>
+            <b id="calLabel"></b>
+            <button onclick="changeMonth(1)" aria-label="Nächster Monat">›</button>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="slots" id="slots" style="display:none"></div>
+          <div class="form-nav">
+            <button class="btn btn-ghost" onclick="prev(2)">Zurück</button>
+            <button class="btn btn-primary" onclick="next(2)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Details -->
+        <div class="step-panel" data-step="3">
+          <div class="step-title">Ihre Angaben</div>
+          <div class="step-sub">Damit ich Sie erreichen und alles vorbereiten kann.</div>
+          <div class="field"><label>Name*</label><input type="text" id="fName" placeholder="Vor- und Nachname"></div>
+          <div class="field"><label>E-Mail*</label><input type="email" id="fEmail" placeholder="name@beispiel.de"></div>
+          <div class="field"><label>Telefon</label><input type="tel" id="fPhone" placeholder="Optional"></div>
+          <div class="field"><label>Format</label>
+            <div class="svc-opts" style="flex-direction:row;gap:12px">
+              <div class="opt sel" data-mode="Vor Ort" style="flex:1;justify-content:center" onclick="pickMode(this)"><b>Vor Ort</b></div>
+              <div class="opt" data-mode="Online (Video)" style="flex:1;justify-content:center" onclick="pickMode(this)"><b>Online</b></div>
+            </div>
+          </div>
+          <div class="field"><label>Ihr Anliegen (optional)</label><textarea id="fMsg" placeholder="Worum möchten Sie sprechen?"></textarea></div>
+          <div class="form-nav">
+            <button class="btn btn-ghost" onclick="prev(3)">Zurück</button>
+            <button class="btn btn-primary" onclick="next(3)">Weiter</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Confirm -->
+        <div class="step-panel" data-step="4">
+          <div class="step-title">Kurz prüfen</div>
+          <div class="step-sub">Stimmt alles? Dann können Sie unverbindlich anfragen.</div>
+          <div class="summary" id="summary"></div>
+          <div class="form-nav">
+            <button class="btn btn-ghost" onclick="prev(4)">Zurück</button>
+            <button class="btn btn-primary" onclick="submitBooking()">Termin anfragen ✓</button>
+          </div>
+          <p class="hint">Dies ist eine Demo-Buchung. Es werden noch keine Daten versendet.</p>
+        </div>
+
+        <!-- Success -->
+        <div class="step-panel" data-step="5">
+          <div class="success">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Vielen Dank, <span id="okName">Sie</span>!</h3>
+            <p id="okText">Ihre Terminanfrage ist eingegangen. Sie erhalten in Kürze eine Bestätigung.</p>
+            <div class="summary" id="okSummary" style="text-align:left"></div>
+            <button class="btn btn-ghost" onclick="resetBooking()" style="margin-top:20px">Neue Anfrage</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pad" id="faq" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>Gut zu wissen</h2>
+    </div>
+    <div class="faq">
+      <div class="acc reveal"><button class="acc-q">Übernimmt die Krankenkasse die Kosten?<span class="plus"></span></button><div class="acc-a"><p>[Platzhalter – ergänzen Sie hier, ob es sich um Selbstzahlerleistungen handelt und wie die Abrechnung erfolgt.]</p></div></div>
+      <div class="acc reveal"><button class="acc-q">Wie lange dauert eine Begleitung?<span class="plus"></span></button><div class="acc-a"><p>Das ist ganz individuell. Manche Anliegen klären sich in wenigen Sitzungen, andere brauchen mehr Zeit. Wir besprechen den Rahmen gemeinsam und passen ihn laufend an.</p></div></div>
+      <div class="acc reveal"><button class="acc-q">Finden Sitzungen auch online statt?<span class="plus"></span></button><div class="acc-a"><p>Ja. Sie können frei zwischen der Praxis vor Ort und sicheren Video-Sitzungen wählen – auch im Wechsel.</p></div></div>
+      <div class="acc reveal"><button class="acc-q">Ist alles wirklich vertraulich?<span class="plus"></span></button><div class="acc-a"><p>Absolut. Alles, was besprochen wird, unterliegt der Schweigepflicht und bleibt streng vertraulich.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="url(#lg2)"/><path d="M20 11c-3 4-7 5-7 10a7 7 0 0 0 14 0c0-5-4-6-7-10z" fill="#fff" opacity=".95"/><defs><linearGradient id="lg2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#a96a44"/><stop offset="1" stop-color="#6d7a5c"/></linearGradient></defs></svg>
+          Praxis für Beratung<br>& Coaching
+        </div>
+        <p>Ein ruhiger, warmer Raum für Klarheit und Wachstum.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#leistungen">Leistungen</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#termin">Termin buchen</a>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>[Adresse]</p>
+        <p>[Telefonnummer]</p>
+        <p>[E-Mail-Adresse]</p>
+      </div>
+      <div>
+        <h4>Sprechzeiten</h4>
+        <p>[Ihre Sprechzeiten]<br>Termine nach Vereinbarung</p>
+        <a href="#termin" class="btn btn-primary" style="margin-top:10px">Termin buchen</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Praxis für psychologische Beratung & Coaching</span>
+      <span>Impressum · Datenschutz · Diese Website ist ein Entwurf mit Platzhaltern.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Nav scroll & mobile menu ---------- */
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30));
+const toggle=document.getElementById('menuToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('show'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('show')));
+
+/* ---------- Reveal on scroll ---------- */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.acc-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const acc=q.parentElement, a=acc.querySelector('.acc-a');
+    const open=acc.classList.contains('open');
+    document.querySelectorAll('.acc').forEach(x=>{x.classList.remove('open');x.querySelector('.acc-a').style.maxHeight=null});
+    if(!open){acc.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+
+/* ---------- Booking state ---------- */
+const state={svc:null,dur:null,date:null,time:null,mode:'Vor Ort'};
+let curStep=1, viewDate=new Date();
+const monthsDE=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+const dowDE=['Mo','Di','Mi','Do','Fr','Sa','So'];
+const slotTimes=['09:00','10:30','12:00','14:00','15:30','17:00'];
+
+/* service select */
+document.querySelectorAll('.svc-opts .opt[data-svc]').forEach(o=>{
+  o.addEventListener('click',()=>{
+    document.querySelectorAll('.opt[data-svc]').forEach(x=>x.classList.remove('sel'));
+    o.classList.add('sel');
+    state.svc=o.dataset.svc;state.dur=o.dataset.dur;
+  });
+});
+function pickMode(el){
+  el.parentElement.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+  el.classList.add('sel');state.mode=el.dataset.mode;
+}
+
+/* calendar */
+function buildCalendar(){
+  const grid=document.getElementById('calGrid');grid.innerHTML='';
+  document.getElementById('calLabel').textContent=monthsDE[viewDate.getMonth()]+' '+viewDate.getFullYear();
+  dowDE.forEach(d=>{const c=document.createElement('div');c.className='dow';c.textContent=d;grid.appendChild(c)});
+  const y=viewDate.getFullYear(),m=viewDate.getMonth();
+  const first=new Date(y,m,1);let start=(first.getDay()+6)%7;
+  const days=new Date(y,m+1,0).getDate();
+  const today=new Date();today.setHours(0,0,0,0);
+  for(let i=0;i<start;i++){grid.appendChild(document.createElement('div'))}
+  for(let d=1;d<=days;d++){
+    const btn=document.createElement('button');btn.className='day';btn.textContent=d;
+    const date=new Date(y,m,d);const dow=date.getDay();
+    const past=date<today, weekend=(dow===0||dow===6);
+    if(past||weekend){btn.disabled=true}
+    if(date.getTime()===today.getTime())btn.classList.add('today');
+    if(state.date && date.toDateString()===state.date.toDateString())btn.classList.add('sel');
+    btn.addEventListener('click',()=>{
+      state.date=date;state.time=null;
+      document.querySelectorAll('.day').forEach(x=>x.classList.remove('sel'));
+      btn.classList.add('sel');buildSlots();
+    });
+    grid.appendChild(btn);
+  }
+}
+function buildSlots(){
+  const box=document.getElementById('slots');box.style.display='grid';box.innerHTML='';
+  slotTimes.forEach((t,i)=>{
+    const avail=(state.date.getDate()+i)%4!==0;
+    const b=document.createElement('button');b.className='slot';b.textContent=t;
+    if(!avail){b.disabled=true;b.style.opacity=.4;b.style.textDecoration='line-through';b.style.cursor='not-allowed'}
+    else b.addEventListener('click',()=>{
+      document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');state.time=t;
+    });
+    box.appendChild(b);
+  });
+}
+function changeMonth(dir){viewDate=new Date(viewDate.getFullYear(),viewDate.getMonth()+dir,1);buildCalendar()}
+
+/* step nav */
+function show(step){
+  document.querySelectorAll('.step-panel').forEach(p=>p.classList.toggle('active',+p.dataset.step===step));
+  for(let i=1;i<=4;i++){document.getElementById('pb'+i).classList.toggle('done',i<=Math.min(step,4))}
+  curStep=step;
+  document.getElementById('termin').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function next(from){
+  if(from===1){if(!state.svc){shake();return}buildCalendar()}
+  if(from===2){if(!state.date||!state.time){shake();return}}
+  if(from===3){
+    const n=document.getElementById('fName').value.trim(),e=document.getElementById('fEmail').value.trim();
+    if(!n||!e||!/.+@.+\..+/.test(e)){shake();return}
+    state.name=n;state.email=e;state.phone=document.getElementById('fPhone').value.trim();
+    state.msg=document.getElementById('fMsg').value.trim();
+    fillSummary('summary');
+  }
+  show(from+1);
+}
+function prev(from){show(from-1)}
+function shake(){
+  const p=document.querySelector('.step-panel.active');
+  p.animate([{transform:'translateX(0)'},{transform:'translateX(-9px)'},{transform:'translateX(9px)'},{transform:'translateX(0)'}],{duration:300});
+}
+function fmtDate(d){return d.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function fillSummary(id){
+  document.getElementById(id).innerHTML=`
+    <div class="row"><span>Leistung</span><span>${state.svc}</span></div>
+    <div class="row"><span>Dauer</span><span>${state.dur}</span></div>
+    <div class="row"><span>Datum</span><span>${fmtDate(state.date)}</span></div>
+    <div class="row"><span>Uhrzeit</span><span>${state.time} Uhr</span></div>
+    <div class="row"><span>Format</span><span>${state.mode}</span></div>
+    <div class="row"><span>Name</span><span>${state.name}</span></div>`;
+}
+function submitBooking(){
+  document.getElementById('okName').textContent=state.name.split(' ')[0];
+  fillSummary('okSummary');
+  show(5);
+}
+function resetBooking(){
+  Object.assign(state,{svc:null,dur:null,date:null,time:null,mode:'Vor Ort'});
+  document.querySelectorAll('.opt[data-svc]').forEach(x=>x.classList.remove('sel'));
+  ['fName','fEmail','fPhone','fMsg'].forEach(i=>document.getElementById(i).value='');
+  document.getElementById('slots').style.display='none';
+  for(let i=1;i<=4;i++)document.getElementById('pb'+i).classList.remove('done');
+  show(1);
+}
+</script>
+</body>
+</html>
