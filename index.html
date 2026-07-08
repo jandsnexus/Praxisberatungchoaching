@@ -619,7 +619,28 @@ footer{background:#332a22;color:#e2d5c4;padding:70px 0 30px;margin-top:20px}
   </div>
 </footer>
 
+<!-- Firebase (nur aktiv, wenn in config.js eine Config eingetragen ist) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
 <script>
+/* =========================================================
+   SPEICHER-ANBINDUNG
+   Einstellungen kommen zentral aus config.js.
+   Demo-Modus (firebase: null): Buchungen werden im Browser
+   gespeichert und erscheinen im Admin-Dashboard auf demselben Gerät.
+   ========================================================= */
+const FIREBASE_CONFIG = (window.APP_CONFIG && window.APP_CONFIG.firebase) || null;
+let db=null;
+try{ if(FIREBASE_CONFIG && window.firebase){ firebase.initializeApp(FIREBASE_CONFIG); db=firebase.firestore(); } }catch(e){ console.warn('Firebase nicht aktiv:',e); }
+function isoDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function saveBooking(b){
+  if(db){ return db.collection('buchungen').add(b).catch(e=>console.warn(e)); }
+  const list=JSON.parse(localStorage.getItem('praxis_buchungen')||'[]');
+  list.push(b); localStorage.setItem('praxis_buchungen', JSON.stringify(list));
+  return Promise.resolve();
+}
+
 /* ---------- Nav scroll & mobile menu ---------- */
 const header=document.getElementById('header');
 addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30));
@@ -736,6 +757,15 @@ function fillSummary(id){
     <div class="row"><span>Name</span><span>${state.name}</span></div>`;
 }
 function submitBooking(){
+  const booking={
+    id:'b'+Date.now(),
+    service:state.svc, duration:state.dur,
+    date:isoDate(state.date), time:state.time,
+    mode:state.mode, name:state.name, email:state.email,
+    phone:state.phone||'', message:state.msg||'',
+    status:'offen', createdAt:new Date().toISOString()
+  };
+  saveBooking(booking);
   document.getElementById('okName').textContent=state.name.split(' ')[0];
   fillSummary('okSummary');
   show(5);
