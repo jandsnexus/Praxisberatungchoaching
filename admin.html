@@ -132,8 +132,8 @@ button{font-family:inherit;cursor:pointer}
 .b-offen{background:#f3e3c9;color:#8a6a1f}
 .b-bestätigt{background:#dce7d3;color:#4d5a3c}
 .b-abgesagt{background:#f0d9d1;color:#9a4a34}
-.appt-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--ink-soft);margin-bottom:10px}
-.appt-meta span{display:flex;align-items:center;gap:6px}
+.appt-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--ink-soft);margin-bottom:10px;overflow-wrap:anywhere}
+.appt-meta span{display:flex;align-items:center;gap:6px;min-width:0}
 .appt-meta svg{color:var(--clay-deep);flex:none}
 .appt-actions{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px;align-items:center}
 .appt-actions a{font-size:.82rem;color:var(--clay-deep);font-weight:600;display:inline-flex;align-items:center;gap:5px}
@@ -147,8 +147,66 @@ button{font-family:inherit;cursor:pointer}
 .hint-bar{background:#f6ead6;border:1px dashed var(--clay);border-radius:14px;padding:14px 18px;font-size:.85rem;color:var(--ink-soft);margin-bottom:22px;display:flex;gap:12px;align-items:flex-start}
 .hint-bar svg{color:var(--clay-deep);flex:none;margin-top:1px}
 
-@media(max-width:900px){.hero-row,.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.container{padding:18px}.stats{grid-template-columns:1fr 1fr}.topbar{padding:14px 18px}.greet h1{font-size:1.6rem}}
+/* ---------- Tablet (Querformat / kleine Laptops) ---------- */
+@media(max-width:960px){
+  .hero-row{grid-template-columns:1fr;gap:16px}
+  .grid{grid-template-columns:1fr;gap:18px}
+  .stats{grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat{padding:16px 16px;gap:12px}
+  .stat .ico{width:40px;height:40px}
+  .stat .val{font-size:1.6rem}
+  .list{max-height:none}
+}
+/* ---------- Tablet Hochformat ---------- */
+@media(max-width:760px){
+  .container{padding:20px 18px 48px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .brand span{display:none}
+  .greet{padding:24px 22px}
+  .greet h1{font-size:1.7rem}
+  .next-card{padding:20px 22px}
+  .panel-body{padding:16px 18px 22px}
+}
+/* ---------- Handy ---------- */
+@media(max-width:520px){
+  .topbar{padding:12px 16px;flex-wrap:wrap;gap:10px}
+  .brand .mark{width:34px;height:34px}
+  .brand b{font-size:1rem}
+  .topbar-right{gap:8px}
+  .container{padding:16px 14px 44px}
+  .hero-row{gap:14px;margin-bottom:18px}
+  .greet{padding:22px 20px}
+  .greet h1{font-size:1.5rem}
+  .greet .date{font-size:.72rem}
+  .stats{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+  .stat{padding:14px 14px;gap:11px;flex-direction:row}
+  .stat .ico{width:36px;height:36px;border-radius:11px}
+  .stat .val{font-size:1.45rem}
+  .stat .lbl{font-size:.74rem}
+  .panel{border-radius:18px}
+  .panel-head{padding:18px 16px 0}
+  .panel-body{padding:14px 14px 20px}
+  .cal-grid{gap:4px}
+  .cell{font-size:.82rem;border-radius:9px}
+  .cell .cnt{min-width:14px;height:14px;font-size:.58rem;top:3px;right:3px}
+  .cell .pip{width:4px;height:4px}
+  .appt{padding:14px 15px}
+  .appt-meta{gap:10px 12px;font-size:.82rem}
+  .appt-actions{gap:6px}
+  .btn-sm{padding:6px 12px;font-size:.78rem}
+  .gate-card{padding:36px 26px}
+}
+/* ---------- sehr schmale Geräte ---------- */
+@media(max-width:360px){
+  .stats{grid-template-columns:1fr}
+  .greet h1{font-size:1.4rem}
+}
+/* Touch: größere Tap-Flächen */
+@media(hover:none){
+  .chip{padding:9px 16px}
+  .cell{min-height:40px}
+  .icon-btn{width:36px;height:36px}
+}
 </style>
 </head>
 <body>
